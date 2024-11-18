@@ -1,4 +1,5 @@
-import os
+from logging import info
+from pathlib import Path
 
 import pandas as pd
 
@@ -8,13 +9,13 @@ from api import business_plan, exit_strategy_to_pdf
 video_data = pd.read_csv("video.csv")
 
 
-def test_business_plan():
+def test_business_plan() -> None:
     business_idea = "Créer une plateforme e-commerce basée sur l'intelligence artificielle pour les petites entreprises locales. Cette plateforme utiliserait l'IA pour personnaliser les recommandations produits pour chaque client en fonction de ses préférences et de son historique de navigation. En parallèle, des outils d'automatisation marketing seraient intégrés pour simplifier la gestion des campagnes publicitaires, par exemple avec des suggestions d'annonces ciblées et l'optimisation des budgets. Enfin, un module de fidélisation client proposerait des récompenses ou des promotions personnalisées, renforçant la relation client à long terme."
     plan = business_plan(business_idea)
-    print(plan)
+    info(plan)
 
 
-def test_exit_strategy_to_pdf():
+def test_exit_strategy_to_pdf() -> None:
     text = """
 **Résumé Exécutif :**
 Ce projet vise à créer une plateforme e-commerce innovante qui met l'accent sur l'intelligence artificielle pour aider les petites entreprises locales à se développer. La plateforme proposera des recommandations de produits personnalisées, des outils d'automatisation marketing, et un module de fidélisation client. Ce business plan présente les formations disponibles dans le domaine pour soutenir le développement et l'optimisation de la plateforme.
@@ -67,4 +68,5 @@ Cette plateforme e-commerce basée sur l'IA représente une solution innovante p
 Ce business plan met en avant non seulement l'idée de la plateforme, mais aussi les ressources éducatives disponibles pour former les utilisateurs et les aider à maximiser leurs résultats.
 """
     exit_strategy_to_pdf(text)
-    assert os.path.exists("exit_strategy.pdf")
+
+    assert Path("exit_strategy.pdf").exists()

@@ -1,3 +1,5 @@
+from logging import info
+
 import pandas as pd
 import streamlit as st
 from langchain.prompts import PromptTemplate
@@ -13,10 +15,11 @@ video_data = pd.read_csv("video.csv")
 
 
 # Define the business_plan function
-def business_plan(form: str):
-    """Takes a business idea and returns a business plan.
+def business_plan(form: str) -> str:
+    """Take a business idea and returns a business plan.
 
-    Identify in the business idea concepts that are present in the database and return a business plan that highlights the formation available in the database.
+    Identify in the business idea concepts that are present in the database and return a
+    business plan that highlights the formation available in the database.
     """
     # Initialize the language model with the OpenAI API key parsed from secrets.toml
     llm = ChatOpenAI(model=MODEL, api_key=st.secrets.OPENAI_API_KEY)
@@ -41,14 +44,14 @@ def business_plan(form: str):
 
 
 # Convert string to pdf
-def exit_strategy_to_pdf(exit_strategy: str):
-    """Take the exit strategy and convert it to a pdf"""
+def exit_strategy_to_pdf(exit_strategy: str) -> MarkdownPdf | None:
+    """Take the exit strategy and convert it to a pdf."""
     try:
         pdf = MarkdownPdf()
         pdf.add_section(Section(exit_strategy))
         pdf.save("exit_strategy.pdf")
+        info("PDf successfully created")
         return pdf
         # TODO(): give the pdf a different name each time like exit_strategy + UUID/name
-        print("PDF created successfully.")
     except Exception as e:
-        print(f"An error occurred while creating the PDF: {e}")
+        info(f"An error occurred while creating the PDF: {e}")

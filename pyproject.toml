@@ -25,4 +25,5 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.ruff]
-select = ["ALL"]
+lint.select = ["ALL"]
+lint.ignore = ["E501"]

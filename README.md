@@ -14,14 +14,16 @@ A user writes his business idea in the form, and the AI will generate a business
 - What video formations can help from the video.csv
 
 ## Dev
-1. Install [poetry](https://python-poetry.org/docs/#installation)
-2. Create a virutal environement and install the dependencies
+
+1. Fill secrets_example.toml with your[OpenAI API key](https://platform.openai.com/api-keys) and rename it to secrets.toml
+2. Install [poetry](https://python-poetry.org/docs/#installation)
+3. Create a virutal environement and install the dependencies
 ```bash
 poetry shell
 poetry install
 ```
-3. Set in an .env file `OPENAI_API_KEY`
-4. Run the app
+1. Set in an .env file `OPENAI_API_KEY`
+2. Run the app
 ```bash
 streamlit run app.py
 ```

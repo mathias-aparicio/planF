@@ -1,5 +1,5 @@
 import pandas as pd
-from dotenv import load_dotenv
+import streamlit as st
 from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import ChatOpenAI
@@ -18,11 +18,8 @@ def business_plan(form: str):
 
     Identify in the business idea concepts that are present in the database and return a business plan that highlights the formation available in the database.
     """
-    # Load the openai API key from .env file
-    load_dotenv()
-
-    # Initialize the language model
-    llm = ChatOpenAI(model=MODEL)
+    # Initialize the language model with the OpenAI API key parsed from secrets.toml
+    llm = ChatOpenAI(model=MODEL, api_key=st.secrets.OPENAI_API_KEY)
 
     # Define the prompt template
     prompt_template = PromptTemplate(

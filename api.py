@@ -50,7 +50,7 @@ def exit_strategy_to_pdf(exit_strategy: str) -> MarkdownPdf | None:
         pdf = MarkdownPdf()
         pdf.add_section(Section(exit_strategy))
         pdf.save("exit_strategy.pdf")
-        info("PDf successfully created")
+        info("PDF successfully created")
         return pdf
         # TODO(): give the pdf a different name each time like exit_strategy + UUID/name
     except Exception as e:

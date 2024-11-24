@@ -1,19 +1,30 @@
 # Plan F
 
-## TODO
-- [x] Form with business idea connected to gpt with acess to video.csv
-- [x] 💄PDF download button
-- [ ] 🚀 Deploy to streamlit
-- [ ] 📡 Implement streaming
-- [ ] 📝 Save pdf files with relevant name
 
 ## Use case
-
 A user writes his business idea in the form, and the AI will generate a business plan with the following sections:
 - What can brings the collaborators of _Plan de Fuite_ as support
 - What video formations can help from the video.csv
 
-## Dev
+## TODO - TypeScript
+- [ ] 🚸 Form with business idea connected to gpt with acess to video.csv
+- [ ] 💄PDF download button
+- [ ] 📡 Implement streaming
+- [ ] 🚀 Deploy to Oracle Cloud always free
+- [ ] 📝 Save pdf files with relevant name
+## TODO - Python
+- [x] 🚸 Form with business idea connected to gpt with acess to video.csv
+- [x] 💄PDF download button
+- [x] 🚀 Deploy to [streamlit](https://plan-fuite.streamlit.app)
+- [ ] 📡 Implement streaming
+- [ ] 📝 Save pdf files with relevant name
+
+## TypScript - Deno application
+
+Run tests
+`deno test --allow-read --allow-env --allow-net`
+## Python - Streamlit application
+
 
 1. Fill secrets_example.toml with your[OpenAI API key](https://platform.openai.com/api-keys) and rename it to secrets.toml
 2. Install [poetry](https://python-poetry.org/docs/#installation)
@@ -22,10 +33,9 @@ A user writes his business idea in the form, and the AI will generate a business
 poetry shell
 poetry install
 ```
-1. Set in an .env file `OPENAI_API_KEY`
-2. Run the app
+4. Run the app
 ```bash
-streamlit run app.py
+poetry run streamlit run app.py
 ```
 
 ## Exemple

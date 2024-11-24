@@ -3,3 +3,14 @@ __pycache__
 .pytest_cache
 .ruff_cache
 *pdf
+node_modules
+coverage
+.env
+.vscode
+typescript/.vscode
+# dotenv environment variable files
+.env
+# Fresh build directory
+_fresh/
+# npm dependencies
+node_modules/
